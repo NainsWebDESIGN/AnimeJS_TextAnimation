@@ -11,21 +11,18 @@ export class AppComponent implements OnInit, AfterViewInit {
   title = 'app';
   constructor() { }
   ngOnInit() {
-    console.log(this.Text);
     this.Text.nativeElement.innerHTML = this.Text.nativeElement.firstChild.textContent.replace(/\S/g, "<span>$&</span>");
   }
   ngAfterViewInit() {
-    anime.timeline({
-      loop: true
-    })
+    anime.timeline({ loop: true })
       .add({
         targets: '.text span',
         translateY: [-600, 0],
         scale: [10, 1],
         opacity: [0, 1],
-        easing: 'easeOutExpo',
+        easing: "easeOutExpo",
         duration: 1500,
-        delay: anime.stagger(100)
+        delay: anime.stagger(100),
       })
 
       .add({
